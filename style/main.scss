@@ -1,0 +1,54 @@
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Prata&display=swap');
+
+
+/*Styling for the entire page*/
+body {
+    background-color: black;
+    background-image: $blackBG;
+    /*image from wallpaperplay.com*/
+    background-size: 100%;
+}
+
+/*Webpage size screen*/
+@media screen and (min-width:1100px){
+    /*mixin for large grid layout with conditional statement for headings*/
+    @include layout-grid1;
+
+    /*basic grid layout styling*/
+    @include main-display;
+
+    /*mixin for the gallery grid layout*/
+    @include gallery-layout;
+}
+
+/*Medium Screen Size*/
+@media screen and (max-width:1100px) and (min-width:600px){
+
+    .grid {
+        display: grid;
+        grid-auto-columns: auto auto;
+    }
+
+    /*basic grid layout styling*/
+    @include main-display;
+    
+    /*mixin for the gallery grid layout*/
+    @include gallery-layout;
+}
+
+@media screen and (max-width:600px){
+
+    .grid {
+        display: grid;
+        grid-auto-columns: auto;
+    }
+
+    /*basic grid layout styling*/
+    @include main-display;
+
+    /*gallery for small screen*/
+    @include gallery-small;
+}

@@ -1,0 +1,164 @@
+@mixin layout-grid1 {
+    $chapter-count:4;
+    .grid {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    //Creating an alternate pattern for chapter titles
+    //All odd chapters start on the left and all even chapters start on the right
+    @for $i1 from 1 through $chapter-count{
+        @if $i1 % 2 ==0{
+            .ch#{$i1} {
+
+                grid-column: 2/ span 2;
+            }
+        }
+      
+    @else{
+        .ch#{$i1} {
+            
+            grid-column: 1/ span 2;
+        }
+    }
+    }
+}
+
+@mixin main-display {
+    h1 {
+        background-image: url("bg3.jpg");
+        /*Image from pexels.com*/
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-color: $ucfGold1;
+        text-align: center;
+        padding: 10px;
+        font-family: $headfont;
+        font-size: 70px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        border-bottom: black solid 1px;
+    }
+
+    /*UCF downtown picture styling*/
+    .banner {
+        width: 100%;
+        margin: 0px 0px 0px 0px;
+    }
+
+    /*styling for the downtown caption credits*/
+    .ucfcap {
+        color: white;
+        margin: 5px 10px 5px 5px;
+        font-family: $font1;
+        text-align: right;
+    }
+    
+    /*styling for the chapter headers*/
+    .hh2 {
+        text-align: center;
+        background-color: $ucfGold2;
+        padding: 10px;
+        font-family: $font1;
+        font-size: 50px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+   
+    /*styling for all the text content paragraphs*/
+    .para {
+        color: white;
+        font-family: $font1;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    /*styling for the picture captions*/
+    .picCap {
+        color: white;
+        margin: 5px 10px 5px 5px;
+        font-family: $font1;
+        text-align: center;
+    }
+
+    /*styling for images*/
+    .img1 {
+        width: 50%;
+    }
+
+    /*styling for images*/
+    .img3{
+        width: 80%;
+    }
+
+    /*styling for the picture container*/
+    .container {
+        text-align: center;
+        display: block;
+    }
+}
+
+/*created a basic mixin for the layout of the large gallery for large and medium size screen*/
+@mixin gallery-layout {
+
+    .gallery{
+        display: grid;
+        grid-template-columns: auto auto;
+        text-align: center;
+    }
+
+    .g {
+        grid-column: 1/ span 2;
+        background-color: $ucfGold1;
+        text-align: center;
+        padding: 10px;
+        font-family: $font1;
+        font-size: 50px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .gal0 {
+        width: 70%;
+    }
+
+    .tall {
+        grid-row: auto/ span 2;
+    }
+
+    .g1 {
+        margin-top: 10px;
+    }
+}
+
+/*created a mixin for the gallery layout of the small screen gallery so pictures can be easily viewed*/
+@mixin gallery-small {
+    .gallery{
+        display: grid;
+        grid-template-columns: auto;
+        text-align: center;
+    }
+
+    .g {
+        grid-column: 1/ span 1;
+        background-color: $ucfGold1;
+        text-align: center;
+        padding: 10px;
+        font-family: $font1;
+        font-size: 50px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .gal0 {
+        width: 70%;
+    }
+
+    .tall {
+        grid-row: auto/ span 2;
+    }
+
+    .g1 {
+        margin-top: 10px;
+    }
+}
